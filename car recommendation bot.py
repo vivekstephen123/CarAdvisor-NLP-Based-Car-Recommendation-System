@@ -12,9 +12,6 @@ from sklearn.svm import LinearSVC
 from sklearn.preprocessing import Normalizer
 from sklearn.calibration import CalibratedClassifierCV
 
-# ─────────────────────────────────────────────
-#  PAGE CONFIG
-# ─────────────────────────────────────────────
 st.set_page_config(
     page_title="CarAdvisor — Your Trusted Car Guru",
     page_icon="🚗",
@@ -22,9 +19,6 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-# ─────────────────────────────────────────────
-#  GLOBAL CSS
-# ─────────────────────────────────────────────
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -88,8 +82,8 @@ html, body, [data-testid="stAppViewContainer"] {
     background: #ffffff !important; border: 1px solid #d1d5db !important;
     border-radius: 8px !important; color: #000000 !important;
 }
-[data-testid="stTextInput"] input,
-[data-testid="stNumberInput"] input { color: #000000 !important; font-weight: 500 !important; }
+[data-testid="stTextInput"] input { color: #000000 !important; font-weight: 500 !important; }
+[data-testid="stNumberInput"] input { color: #ffffff !important; font-weight: 500 !important; }
 [data-testid="stTextInput"] > div > div:focus-within,
 [data-testid="stNumberInput"] > div > div:focus-within {
     border-color: #4a55c8 !important; box-shadow: 0 0 0 3px rgba(74,85,200,0.08) !important;
@@ -108,7 +102,6 @@ html, body, [data-testid="stAppViewContainer"] {
 }
 [data-testid="stButton"] > button:hover { background: #3b45b0 !important; }
 
-/* Pills */
 .intent-pill {
     display: inline-flex; align-items: center; gap: 6px;
     background: #eef0fb; border: 1px solid #c7cbf4;
@@ -132,7 +125,6 @@ html, body, [data-testid="stAppViewContainer"] {
     font-size: 12px; margin-bottom: 14px; line-height: 1.5;
 }
 
-/* Intent weight bars */
 .intent-breakdown { margin-bottom: 16px; }
 .intent-row {
     display: flex; align-items: center; gap: 10px;
@@ -143,12 +135,10 @@ html, body, [data-testid="stAppViewContainer"] {
 .intent-fill  { height: 100%; border-radius: 4px; background: #4a55c8; }
 .intent-pct   { width: 36px; text-align: right; color: #6b7280; font-weight: 500; }
 
-/* Confidence bar */
 .conf-track { background: #e5e7eb; border-radius: 6px; height: 5px; width: 100%; overflow: hidden; margin-top: 5px; }
 .conf-fill-high { height:100%; border-radius:6px; background:#4a55c8; }
 .conf-fill-low  { height:100%; border-radius:6px; background:#f59e0b; }
 
-/* Results */
 .results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
 .results-title  { font-size: 17px; font-weight: 700; color: #111827; }
 .results-count  {
@@ -156,17 +146,12 @@ html, body, [data-testid="stAppViewContainer"] {
     border: 1px solid #e5e7eb; padding: 3px 12px; border-radius: 20px;
 }
 
-/* Car card */
 .car-card {
     background: #ffffff; border: 1px solid #e5e7eb;
     border-radius: 12px; padding: 20px 22px; margin-bottom: 12px;
     position: relative; transition: box-shadow 0.18s, border-color 0.18s;
 }
 .car-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.07); border-color: #c7cbf4; }
-.card-rank {
-    position: absolute; top: 16px; right: 18px;
-    font-size: 36px; font-weight: 700; color: #f0f1f6; line-height: 1; user-select: none;
-}
 .car-brand { font-size: 10px; color: #9ca3af; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
 .car-name  { font-size: 17px; font-weight: 700; color: #111827; }
 .price-label { font-size: 10px; color: #9ca3af; letter-spacing: 1px; text-transform: uppercase; text-align: right; }
@@ -187,7 +172,6 @@ html, body, [data-testid="stAppViewContainer"] {
 }
 .explanation-box strong { color: #3b45b0; }
 
-/* Why ranked box */
 .why-box {
     margin-top: 8px; padding: 8px 12px;
     background: #f0fdf4; border: 1px solid #bbf7d0;
@@ -211,7 +195,7 @@ html, body, [data-testid="stAppViewContainer"] {
     font-size: 12px; color: #6b7280; line-height: 1.5; margin-bottom: 8px;
 }
 
-/* ── Model Diagnostics: dark grey text ── */
+/* Force readable text inside the diagnostics expander */
 [data-testid="stExpander"] p,
 [data-testid="stExpander"] span:not(.stExpanderToggleIcon):not([data-testid]),
 [data-testid="stExpander"] div:not([data-testid]),
@@ -233,9 +217,6 @@ html, body, [data-testid="stAppViewContainer"] {
 """, unsafe_allow_html=True)
 
 
-# ─────────────────────────────────────────────
-#  CONSTANTS
-# ─────────────────────────────────────────────
 LUXURY_BRANDS = ["BMW", "Audi", "Mercedes-Benz", "Land Rover", "Volvo", "Lexus", "Jaguar"]
 FUEL_TYPES    = ["petrol", "diesel", "electric", "cng", "hybrid", "petrol hybrid"]
 BODY_TYPES    = ["sedan", "hatchback", "suv", "mpv", "coupe suv", "pickup", "crossover"]
@@ -246,7 +227,8 @@ KNOWN_BRANDS  = [
     "mercedes-benz", "land rover", "volvo", "lexus", "jaguar", "porsche",
     "datsun", "isuzu",
 ]
-# Map query brand aliases → exact brand column values
+
+# Normalises common aliases to the exact brand name stored in the dataset
 BRAND_MAP = {
     "maruti": "Maruti Suzuki", "maruti suzuki": "Maruti Suzuki", "suzuki": "Maruti Suzuki",
     "vw": "Volkswagen", "volkswagen": "Volkswagen",
@@ -254,10 +236,6 @@ BRAND_MAP = {
     "land rover": "Land Rover",
 }
 
-# Keywords that strongly signal each intent — used for rule-based intent detection
-# ─────────────────────────────────────────────
-#  INTENT META  — icon + pill CSS class per intent
-# ─────────────────────────────────────────────
 INTENT_META = {
     "budget":      ("💰", "budget-pill"),
     "mileage":     ("⛽", "mileage-pill"),
@@ -288,7 +266,7 @@ INTENT_KEYWORDS = {
                     "easy to drive", "new buyer", "just got licence", "learn driving"],
 }
 
-# Scoring weights per intent — controls how much each factor contributes
+# Per-intent scoring weights across price, mileage, power, and safety dimensions
 INTENT_WEIGHTS = {
     "budget":      {"price": 0.70, "mileage": 0.20, "power": 0.05, "ncap": 0.05},
     "mileage":     {"price": 0.25, "mileage": 0.65, "power": 0.05, "ncap": 0.05},
@@ -296,7 +274,6 @@ INTENT_WEIGHTS = {
     "safety":      {"price": 0.20, "mileage": 0.10, "power": 0.05, "ncap": 0.65},
     "family":      {"price": 0.30, "mileage": 0.35, "power": 0.10, "ncap": 0.25},
     "fuel":        {"price": 0.35, "mileage": 0.50, "power": 0.10, "ncap": 0.05},
-    # New intents
     "comfort":     {"price": 0.30, "mileage": 0.20, "power": 0.10, "ncap": 0.40},
     "off_road":    {"price": 0.25, "mileage": 0.10, "power": 0.55, "ncap": 0.10},
     "automatic":   {"price": 0.45, "mileage": 0.30, "power": 0.15, "ncap": 0.10},
@@ -304,28 +281,24 @@ INTENT_WEIGHTS = {
 }
 
 
-# ─────────────────────────────────────────────
-#  DATA & MODEL LOADING
-# ─────────────────────────────────────────────
 @st.cache_data
 def load_data():
     import os as _os
     _base = _os.path.dirname(_os.path.abspath(__file__))
-    cars = pd.read_csv(_os.path.join(_base, "indian_cars_synthetic_dataset (1).csv"))
+    cars = pd.read_csv(_os.path.join(_base, "indian_cars_dataset (1).csv"))
     cars.columns = cars.columns.str.strip().str.lower()
     intent_df = pd.read_csv(_os.path.join(_base, "intent_data.csv"))
     intent_df["query"]  = intent_df["query"].str.lower()
     intent_df["intent"] = intent_df["intent"].str.lower()
     return cars, intent_df
 
+
 def anchor_query(query, intent):
     if intent in INTENT_KEYWORDS:
         return f"{query} {random.choice(INTENT_KEYWORDS[intent])}"
     return query
 
-# ─────────────────────────────────────────────
-#  HINGLISH NORMALISATION
-# ─────────────────────────────────────────────
+
 HINGLISH_MAP = {
     "gadi": "car", "gaadi": "car", "gaddi": "car", "kaar": "car",
     "biwi": "family", "patni": "family", "bacche": "family",
@@ -346,15 +319,6 @@ def normalise_hinglish(text: str) -> str:
 
 @st.cache_resource
 def train_model():
-    """
-    Returns vectorizer, classifier, and cv_results dict containing:
-      - fold_accs  : accuracy per fold
-      - cv_mean    : mean CV accuracy
-      - cv_std     : std across folds
-      - cm         : confusion matrix (numpy array)
-      - labels     : intent class labels
-      - report     : per-class precision/recall/f1
-    """
     from sklearn.model_selection import StratifiedKFold, cross_val_predict
     from sklearn.metrics         import (accuracy_score, confusion_matrix,
                                          classification_report)
@@ -369,7 +333,7 @@ def train_model():
     X = intent_df["query"].values
     y = intent_df["intent"].values
 
-    # ── Upgraded model: word n-grams + char n-grams + LinearSVC ──
+    # Combined word n-gram + character n-gram features fed into a calibrated LinearSVC
     feat = FeatureUnion([
         ("word", TfidfVectorizer(ngram_range=(1, 2), analyzer="word",    sublinear_tf=True)),
         ("char", TfidfVectorizer(ngram_range=(3, 5), analyzer="char_wb", sublinear_tf=True)),
@@ -382,7 +346,6 @@ def train_model():
         )),
     ])
 
-    # 5-fold stratified CV
     skf       = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
     fold_accs = []
     for train_idx, test_idx in skf.split(X, y):
@@ -393,13 +356,12 @@ def train_model():
     cv_mean = float(np.mean(fold_accs))
     cv_std  = float(np.std(fold_accs))
 
-    # Cross-val predictions for confusion matrix (no data leakage)
+    # cross_val_predict gives confusion matrix stats without data leakage
     cv_preds = cross_val_predict(pipe, X, y, cv=skf)
     labels   = sorted(set(y))
     cm       = confusion_matrix(y, cv_preds, labels=labels)
     report   = classification_report(y, cv_preds, labels=labels, output_dict=True)
 
-    # Final fit on ALL data for production inference
     pipe.fit(X, y)
 
     cv_results = {
@@ -413,17 +375,15 @@ def train_model():
 
     return pipe, pipe, cv_results
 
+
 cars, intent_df = load_data()
 vectorizer, clf_model, cv_results = train_model()
 
 
-# ─────────────────────────────────────────────
-#  MULTI-INTENT DETECTION
-# ─────────────────────────────────────────────
 def detect_intents(text: str, threshold: float = 0.10) -> dict:
     q = normalise_hinglish(text)
 
-    probs = vectorizer.predict_proba([q])[0]
+    probs     = vectorizer.predict_proba([q])[0]
     ml_scores = {cls: float(p) for cls, p in zip(vectorizer.classes_, probs)}
 
     kw_scores = {}
@@ -436,13 +396,12 @@ def detect_intents(text: str, threshold: float = 0.10) -> dict:
         ml_scores.setdefault(i, 0.0)
         kw_scores.setdefault(i, 0.0)
 
-    blended = {}
-    for i in all_intents:
-        blended[i] = 0.60 * ml_scores[i] + 0.40 * kw_scores[i]
+    # Blend ML probability (60%) with keyword hit rate (40%)
+    blended = {i: 0.60 * ml_scores[i] + 0.40 * kw_scores[i] for i in all_intents}
 
     active = {i: w for i, w in blended.items() if w >= threshold}
     if not active:
-        top = max(blended, key=blended.get)
+        top    = max(blended, key=blended.get)
         active = {top: 1.0}
 
     total = sum(active.values())
@@ -453,9 +412,6 @@ def primary_intent(intent_weights: dict) -> str:
     return max(intent_weights, key=intent_weights.get)
 
 
-# ─────────────────────────────────────────────
-#  MULTI-INTENT SCORING
-# ─────────────────────────────────────────────
 def compute_blended_weights(intent_weights: dict) -> dict:
     blended = {"price": 0.0, "mileage": 0.0, "power": 0.0, "ncap": 0.0}
     default = {"price": 0.40, "mileage": 0.35, "power": 0.15, "ncap": 0.10}
@@ -469,9 +425,6 @@ def compute_blended_weights(intent_weights: dict) -> dict:
     return {k: v / total for k, v in blended.items()}
 
 
-# ─────────────────────────────────────────────
-#  HELPERS
-# ─────────────────────────────────────────────
 def extract_fuel_type(query: str):
     q = query.lower()
     for f in FUEL_TYPES:
@@ -479,12 +432,15 @@ def extract_fuel_type(query: str):
             return f
     return None
 
+
 def extract_body_type(query: str):
     q = query.lower()
+    # Sort longest first so "coupe suv" matches before "suv"
     for b in sorted(BODY_TYPES, key=len, reverse=True):
         if b in q:
             return b
     return None
+
 
 def extract_brand(query: str):
     import re as _re
@@ -498,13 +454,11 @@ def extract_brand(query: str):
                 return BRAND_MAP.get(alias, alias.title())
     return None
 
+
 def normalize(col: pd.Series) -> pd.Series:
     return (col - col.min()) / (col.max() - col.min() + 1e-6)
 
 
-# ─────────────────────────────────────────────
-#  BUDGET EXTRACTION FROM QUERY TEXT
-# ─────────────────────────────────────────────
 def extract_budget_from_query(text: str):
     import re as _re
     t     = text.lower().strip()
@@ -514,7 +468,7 @@ def extract_budget_from_query(text: str):
     def _val(m, src, headroom=1.0):
         num = float(m.group(1))
         seg = src[max(0, m.start()-2):m.end()]
-        unit = CRORE if any(x in seg for x in ["cr","crore"]) else LAKH
+        unit = CRORE if any(x in seg for x in ["cr", "crore"]) else LAKH
         return num * unit * headroom
 
     U = r"(?:lakh|lakhs|lac|lacs|l(?![a-z])|crore|crores|cr(?![a-z]))"
@@ -545,9 +499,6 @@ def extract_budget_from_query(text: str):
     return None
 
 
-# ─────────────────────────────────────────────
-#  BUDGET ESTIMATION
-# ─────────────────────────────────────────────
 def resolve_budget(df: pd.DataFrame, intent_weights: dict, explicit_budget) -> float | None:
     prices = pd.to_numeric(df["price_inr"], errors="coerce").dropna()
     if prices.empty:
@@ -559,6 +510,7 @@ def resolve_budget(df: pd.DataFrame, intent_weights: dict, explicit_budget) -> f
     has_budget = "budget" in intent_weights and intent_weights["budget"] >= 0.12
     has_family = "family" in intent_weights and intent_weights["family"] >= 0.12
 
+    # Family + budget together implies a slightly higher price ceiling
     if has_budget and has_family:
         return float(prices.quantile(0.60))
     elif has_budget:
@@ -566,9 +518,6 @@ def resolve_budget(df: pd.DataFrame, intent_weights: dict, explicit_budget) -> f
     return None
 
 
-# ─────────────────────────────────────────────
-#  FILTERING
-# ─────────────────────────────────────────────
 def rule_based_filter(df: pd.DataFrame, intent_weights: dict,
                       budget=None, fuel=None, body_type=None, brand=None) -> pd.DataFrame:
     filtered = df.copy()
@@ -577,7 +526,6 @@ def rule_based_filter(df: pd.DataFrame, intent_weights: dict,
     filtered["price_inr"] = pd.to_numeric(filtered["price_inr"], errors="coerce")
 
     effective_budget = resolve_budget(df, intent_weights, budget)
-
     if effective_budget is not None:
         filtered = filtered[filtered["price_inr"] <= effective_budget]
 
@@ -631,9 +579,6 @@ def rule_based_filter(df: pd.DataFrame, intent_weights: dict,
     return filtered
 
 
-# ─────────────────────────────────────────────
-#  RANKING
-# ─────────────────────────────────────────────
 def rank_cars(df: pd.DataFrame, factor_weights: dict) -> pd.DataFrame:
     ranked = df.copy()
     for col in ["price_inr", "mileage_kmpl", "power_hp"]:
@@ -642,6 +587,7 @@ def rank_cars(df: pd.DataFrame, factor_weights: dict) -> pd.DataFrame:
     ranked["price_n"]   = 1 - normalize(ranked["price_inr"].astype(float))
     ranked["mileage_n"] = normalize(ranked["mileage_kmpl"].astype(float))
     ranked["power_n"]   = normalize(ranked["power_hp"].astype(float))
+
     if "global_ncap" in ranked.columns:
         ranked["ncap_n"] = normalize(
             pd.to_numeric(ranked["global_ncap"], errors="coerce").fillna(0)
@@ -658,10 +604,6 @@ def rank_cars(df: pd.DataFrame, factor_weights: dict) -> pd.DataFrame:
     return ranked.sort_values("score", ascending=False)
 
 
-# ─────────────────────────────────────────────
-#  EXPLAINABILITY
-# ─────────────────────────────────────────────
-
 def render_ncap_stars(rating) -> str:
     try:
         stars = int(float(rating))
@@ -674,7 +616,7 @@ def render_ncap_stars(rating) -> str:
 
 
 def explain_ranking(row, intent_weights: dict) -> str:
-    parts = []
+    parts   = []
     intents = sorted(intent_weights.items(), key=lambda x: -x[1])
 
     for intent, share in intents:
@@ -695,24 +637,24 @@ def explain_ranking(row, intent_weights: dict) -> str:
             if pd.notna(seating):
                 parts.append(f"{int(seating)}-seater (family-friendly)")
         elif intent == "fuel":
-            parts.append(f"{str(row.get('fuel_type','—')).title()} fuel type")
+            parts.append(f"{str(row.get('fuel_type', '—')).title()} fuel type")
         elif intent == "comfort":
-            trans = row.get("transmission", "")
-            ncap  = row.get("global_ncap", None)
+            trans        = row.get("transmission", "")
+            ncap         = row.get("global_ncap", None)
             comfort_bits = []
             if str(trans).lower() == "automatic":
                 comfort_bits.append("Automatic")
             if pd.notna(ncap):
                 try:
                     comfort_bits.append(f"{int(float(ncap))}/5 safety")
-                except: pass
+                except Exception:
+                    pass
             if comfort_bits:
                 parts.append(" · ".join(comfort_bits) + " (comfort-oriented)")
         elif intent == "off_road":
-            parts.append(f"{row['power_hp']} HP · {row.get('body_type','SUV')} (off-road capable)")
+            parts.append(f"{row['power_hp']} HP · {row.get('body_type', 'SUV')} (off-road capable)")
         elif intent == "automatic":
-            trans = row.get("transmission", "")
-            if str(trans).lower() == "automatic":
+            if str(row.get("transmission", "")).lower() == "automatic":
                 parts.append("Automatic transmission (no clutch)")
         elif intent == "first_car":
             parts.append(f"₹{int(row['price_inr']):,} · {row['mileage_kmpl']} kmpl (great first car)")
@@ -720,10 +662,6 @@ def explain_ranking(row, intent_weights: dict) -> str:
     return " · ".join(parts) if parts else f"₹{int(row['price_inr']):,}, {row['mileage_kmpl']} kmpl"
 
 
-
-# ─────────────────────────────────────────────
-#  HERO
-# ─────────────────────────────────────────────
 st.markdown("""
 <div class="hero">
   <div class="hero-badge">AI-Powered · Multi-Intent NLP · Real-time</div>
@@ -743,22 +681,18 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# ─────────────────────────────────────────────
-#  LAYOUT
-# ─────────────────────────────────────────────
 col_left, col_right = st.columns([1.05, 2.3], gap="small")
 
 with col_left:
     st.markdown('<div class="section-label">Query Input</div>', unsafe_allow_html=True)
 
-    query  = st.text_input(
+    query = st.text_input(
         "Describe your requirement",
         placeholder="e.g. safe affordable petrol family car",
         key="query_input",
     )
 
-    # Auto-extract budget from query text
-    _auto_budget = extract_budget_from_query(query) if query else None
+    _auto_budget   = extract_budget_from_query(query) if query else None
     _auto_detected = _auto_budget is not None
 
     budget = st.number_input(
@@ -771,14 +705,13 @@ with col_left:
     )
     run = st.button("Analyse & Recommend")
 
-    # Show auto-detection notice inline under input
     if _auto_detected and budget == int(_auto_budget):
         st.markdown(
             f'''<div style="background:#dcfce7;border-left:3px solid #16a34a;padding:6px 10px;
             border-radius:4px;font-size:12px;color:#166534;margin-top:-8px;">
             💡 Budget <strong>₹{int(_auto_budget):,}</strong> extracted from your query
             </div>''',
-            unsafe_allow_html=True
+            unsafe_allow_html=True,
         )
 
     st.markdown("""
@@ -795,16 +728,13 @@ with col_left:
     </div>
     """, unsafe_allow_html=True)
 
-    # ── Model Diagnostics expander ──
     with st.expander("🔬 Model Diagnostics", expanded=False):
-
-        # CV accuracy per fold
         st.markdown(
             '<div class="section-label" style="margin-top:0;">5-Fold Cross-Validation</div>',
             unsafe_allow_html=True,
         )
         fold_data = {
-            "Fold": [f"Fold {i+1}" for i in range(len(cv_results["fold_accs"]))],
+            "Fold":     [f"Fold {i+1}" for i in range(len(cv_results["fold_accs"]))],
             "Accuracy": [f"{a:.1%}" for a in cv_results["fold_accs"]],
         }
         st.table(pd.DataFrame(fold_data).set_index("Fold"))
@@ -816,7 +746,6 @@ with col_left:
 
         st.divider()
 
-        # Confusion matrix as styled dataframe
         st.markdown(
             '<div class="section-label">Confusion Matrix (CV predictions)</div>',
             unsafe_allow_html=True,
@@ -834,7 +763,6 @@ with col_left:
 
         st.divider()
 
-        # Per-class precision / recall / f1
         st.markdown(
             '<div class="section-label">Per-Class Metrics</div>',
             unsafe_allow_html=True,
@@ -852,6 +780,7 @@ with col_left:
             })
         st.table(pd.DataFrame(rows).set_index("Intent"))
 
+
 with col_right:
 
     if not run or not query.strip():
@@ -863,43 +792,38 @@ with col_right:
         </div>
         """, unsafe_allow_html=True)
     else:
-        # ── Hinglish detection ──
         normalised_query = normalise_hinglish(query)
         hinglish_hit     = normalised_query != query.lower()
 
-        # ── Multi-intent detection ──
-        intent_weights  = detect_intents(query)
-        factor_weights  = compute_blended_weights(intent_weights)
-        fuel            = extract_fuel_type(query)
-        body_type       = extract_body_type(query)
-        brand           = extract_brand(query)
-        top_intent      = primary_intent(intent_weights)
-        is_multi        = len(intent_weights) > 1
-        top_conf        = intent_weights[top_intent]
+        intent_weights = detect_intents(query)
+        factor_weights = compute_blended_weights(intent_weights)
+        fuel           = extract_fuel_type(query)
+        body_type      = extract_body_type(query)
+        brand          = extract_brand(query)
+        top_intent     = primary_intent(intent_weights)
+        is_multi       = len(intent_weights) > 1
+        top_conf       = intent_weights[top_intent]
 
-        # ── Hinglish notice ──
         if hinglish_hit:
             st.markdown(
-                '<div class="info-box" style="background:#f0fdf4;border-color:#bbf7d0;color:#166534;">' +
-                '🌐 <strong>Hinglish detected</strong> — query normalised to English before classification. ' +
+                '<div class="info-box" style="background:#f0fdf4;border-color:#bbf7d0;color:#166534;">'
+                '🌐 <strong>Hinglish detected</strong> — query normalised to English before classification. '
                 f'Interpreted as: <em>"{normalised_query}"</em></div>',
                 unsafe_allow_html=True,
             )
 
-        # ── Analysis section ──
         st.markdown('<div class="section-label">Intent Analysis</div>', unsafe_allow_html=True)
 
-        # Show all detected intent pills
         pills_html = ""
         for intent, weight in sorted(intent_weights.items(), key=lambda x: -x[1]):
             icon, css = INTENT_META.get(intent, ("🎯", "intent-pill"))
             label     = intent.replace("_", " ").title()
             pills_html += (
-                f'<span class="intent-pill {css}">' +
+                f'<span class="intent-pill {css}">'
                 f'{icon} {label} ({int(weight*100)}%)</span>'
             )
         if fuel:
-            icon, css  = INTENT_META.get("fuel", ("🔋", "fuel-pill"))
+            icon, css   = INTENT_META.get("fuel", ("🔋", "fuel-pill"))
             pills_html += f'<span class="intent-pill {css}">{icon} {fuel.title()}</span>'
         if body_type:
             pills_html += f'<span class="intent-pill" style="background:#f0f9ff;border-color:#bae6fd;color:#0369a1;">🚘 {body_type.title()}</span>'
@@ -907,7 +831,6 @@ with col_right:
             pills_html += f'<span class="intent-pill" style="background:#faf5ff;border-color:#e9d5ff;color:#6b21a8;">🏷️ {brand}</span>'
         st.markdown(pills_html, unsafe_allow_html=True)
 
-        # Multi-intent notice
         if is_multi:
             intent_list = ", ".join(
                 f"{i.title()} ({int(w*100)}%)"
@@ -919,7 +842,6 @@ with col_right:
                 unsafe_allow_html=True,
             )
 
-        # Intent weight breakdown bars
         INTENT_BAR_COLORS = {
             "budget": "#eab308", "mileage": "#22c55e", "performance": "#ef4444",
             "safety": "#3b82f6", "family": "#a855f7", "fuel": "#10b981",
@@ -928,10 +850,10 @@ with col_right:
         }
         breakdown_html = '<div class="intent-breakdown">'
         for intent, weight in sorted(intent_weights.items(), key=lambda x: -x[1]):
-            pct       = int(weight * 100)
-            bar_color = INTENT_BAR_COLORS.get(intent, "#4a55c8")
+            pct         = int(weight * 100)
+            bar_color   = INTENT_BAR_COLORS.get(intent, "#4a55c8")
             icon_str, _ = INTENT_META.get(intent, ("", ""))
-            label_str = intent.replace("_", " ").title()
+            label_str   = intent.replace("_", " ").title()
             breakdown_html += (
                 '<div class="intent-row">'
                 f'<span class="intent-name">{icon_str} {label_str}</span>'
@@ -944,25 +866,15 @@ with col_right:
         breakdown_html += '</div>'
         st.markdown(breakdown_html, unsafe_allow_html=True)
 
-        # Low confidence fallback (based on top intent share)
-        is_high = top_conf >= 0.50
-        if not is_high:
+        if top_conf < 0.50:
             st.markdown("""
             <div class="info-box">
               ⚠️ Low confidence — try rephrasing your query with more specific keywords.
             </div>
             """, unsafe_allow_html=True)
 
-        # ── Filter & rank ──
-        filtered = rule_based_filter(
-            cars, intent_weights,
-            budget,
-            fuel,
-            body_type,
-            brand,
-        )
+        filtered = rule_based_filter(cars, intent_weights, budget, fuel, body_type, brand)
 
-        # Show effective budget if auto-estimated from intent
         eff_budget = resolve_budget(cars, intent_weights, budget)
         if eff_budget and (not budget or budget == 0):
             st.markdown(
@@ -971,6 +883,7 @@ with col_right:
                 f'<strong>₹{int(eff_budget):,}</strong> applied based on "affordable" intent.</div>',
                 unsafe_allow_html=True,
             )
+
         ranked = rank_cars(filtered, factor_weights)
         top    = ranked.head(5).copy()
 
@@ -993,7 +906,7 @@ with col_right:
         else:
             max_score = top["score"].max()
 
-            for rank_num, (_, row) in enumerate(top.iterrows(), 1):
+            for _, row in top.iterrows():
                 score_pct         = int((row["score"] / max_score) * 100) if max_score > 0 else 0
                 price_fmt         = "₹{:,}".format(int(row["price_inr"]))
                 fuel_type_display = str(row.get("fuel_type", "—")).title()
@@ -1003,11 +916,11 @@ with col_right:
                 power             = str(row["power_hp"])
                 why               = explain_ranking(row, intent_weights)
 
-                seating_val  = row.get("seating", None)
-                seating_box  = ""
+                seating_val = row.get("seating", None)
+                seating_box = ""
                 if pd.notna(seating_val):
                     try:
-                        s = int(float(seating_val))
+                        s           = int(float(seating_val))
                         seating_box = (
                             '<div class="spec-box">'
                             f'<div class="spec-val">{s} 💺</div>'
@@ -1017,9 +930,6 @@ with col_right:
                     except Exception:
                         pass
 
-                grid_cols = "repeat(3,1fr)"
-
-                # NCAP box
                 ncap_raw   = row.get("global_ncap", None)
                 ncap_valid = (ncap_raw is not None) and pd.notna(ncap_raw)
                 if ncap_valid:
@@ -1031,11 +941,10 @@ with col_right:
                         '</div>'
                     )
                 else:
-                    ncap_box  = ""
+                    ncap_box = ""
 
                 card_html = (
                     '<div class="car-card">'
-                    '<div class="card-rank">#' + str(rank_num) + '</div>'
 
                     '<div style="display:flex;justify-content:space-between;'
                     'align-items:flex-start;margin-bottom:14px;">'
@@ -1049,7 +958,7 @@ with col_right:
                     '</div>'
                     '</div>'
 
-                    '<div style="display:grid;grid-template-columns:' + grid_cols + ';gap:10px;margin-bottom:14px;">'
+                    '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;">'
                     '<div class="spec-box"><div class="spec-val">' + mileage + '</div><div class="spec-key">Mileage (kmpl)</div></div>'
                     '<div class="spec-box"><div class="spec-val">' + power   + '</div><div class="spec-key">Power (HP)</div></div>'
                     '<div class="spec-box"><div class="spec-val">' + fuel_type_display + '</div><div class="spec-key">Fuel Type</div></div>'
