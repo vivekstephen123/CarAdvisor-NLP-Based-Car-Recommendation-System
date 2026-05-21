@@ -1,0 +1,191 @@
+Brand,Model,Power_hp,Price_INR,Mileage_kmpl,Fuel_Type,Seating,Dimensions_mm,Transmission,Body_Type,Global_NCAP
+Audi,A4,190,5500000,17,Petrol,5,4762x1847x1433,Automatic,Sedan,5
+Audi,Q3,190,5200000,15,Petrol,5,4485x1849x1616,Automatic,SUV,5
+BMW,3 Series,258,6500000,16,Petrol,5,4713x1827x1440,Automatic,Sedan,5
+BMW,X1,136,4600000,16,Petrol,5,4500x1845x1642,Automatic,SUV,5
+BYD,Atto 3,204,3400000,0,Electric,5,4455x1875x1615,Automatic,SUV,5
+BYD,Seal,530,5000000,0,Electric,5,4800x1875x1460,Automatic,Sedan,5
+BYD,Seal U,204,2000000,0,Electric,5,4650x1875x1670,Automatic,SUV,5
+BYD,Sealion 6,204,3900000,0,Electric,5,4750x1890x1605,Automatic,SUV,5
+Citroen,Basalt,110,1200000,18,Petrol,5,4300x1790x1650,Manual,Coupe SUV,4
+Citroen,C3,82,650000,19,Petrol,5,3981x1733x1604,Manual,Hatchback,0
+Citroen,C3 Aircross,110,1100000,18,Petrol,5,4323x1796x1669,Manual,SUV,5
+Citroen,C5 Aircross,177,3600000,14,Petrol,5,4500x1860x1710,Automatic,SUV,0
+Citroen,eC3,57,1100000,0,Electric,5,3981x1733x1604,Automatic,Hatchback,3
+Citroen,eC3 Max,57,1300000,0,Electric,5,3981x1733x1604,Automatic,Hatchback,3
+Force,Gurkha,140,1600000,14,Diesel,4,3870x1715x1922,Manual,SUV,0
+Force,Gurkha 5-Door,140,1800000,14,Diesel,5,4110x1790x1922,Manual,SUV,0
+Honda,Amaze,90,950000,18,Petrol,5,3995x1695x1501,Manual,Sedan,5
+Honda,Amaze CNG,90,1100000,30,Petrol CNG,5,3995x1695x1501,Manual,Sedan,5
+Honda,City,121,1600000,17,Petrol,5,4549x1748x1489,Manual,Sedan,5
+Honda,City e:HEV,126,2000000,26,Petrol Hybrid,5,4553x1748x1467,Automatic,Sedan,5
+Honda,Elevate,121,1800000,16,Petrol,5,4312x1790x1650,Manual,SUV,5
+Hyundai,Alcazar,159,2000000,14,Diesel,7,4500x1790x1675,Automatic,SUV,3
+Hyundai,Aura,83,850000,20,Petrol,5,3995x1680x1520,Manual,Sedan,3
+Hyundai,Aura CNG,83,1000000,28,Petrol CNG,5,3995x1680x1520,Manual,Sedan,3
+Hyundai,Creta,160,1900000,17,Petrol,5,4330x1790x1635,Automatic,SUV,3
+Hyundai,Creta EV Premium,135,2000000,0,Electric,5,4330x1790x1635,Automatic,SUV,3
+Hyundai,Creta Electric,135,1800000,0,Electric,5,4330x1790x1635,Automatic,SUV,3
+Hyundai,Exter,83,700000,19,Petrol,5,3815x1710x1631,Manual,SUV,Not Rated
+Hyundai,Grand i10 Nios,83,800000,20,Petrol,5,3805x1680x1520,Manual,Hatchback,3
+Hyundai,Grand i10 Nios CNG,83,950000,27,Petrol CNG,5,3805x1680x1520,Manual,Hatchback,3
+Hyundai,Ioniq 5,217,4600000,0,Electric,5,4635x1890x1605,Automatic,SUV,5
+Hyundai,Ioniq 6,239,5400000,0,Electric,5,4855x1880x1495,Automatic,Sedan,5
+Hyundai,Tucson,185,2900000,14,Petrol,5,4500x1850x1665,Automatic,SUV,5
+Hyundai,Venue,120,1200000,18,Petrol,5,4253x1770x1590,Manual,SUV,3
+Hyundai,Venue CNG,120,1400000,27,Petrol CNG,5,4253x1770x1590,Manual,SUV,3
+Hyundai,Venue Diesel,100,1400000,23,Diesel,5,4253x1770x1590,Manual,SUV,3
+Hyundai,Venue N Line,120,1400000,18,Petrol,5,4253x1770x1590,Manual,SUV,3
+Hyundai,Verna,160,1100000,18,Petrol,5,4535x1765x1475,Automatic,Sedan,5
+Hyundai,i20,120,1200000,20,Petrol,5,3995x1775x1505,Manual,Hatchback,3
+Hyundai,i20 N Line,120,1400000,20,Petrol,5,3995x1775x1505,Manual,Hatchback,3
+Isuzu,D-Max,163,2500000,13,Diesel,5,5295x1870x1780,Manual,Pickup,0
+Isuzu,D-Max V-Cross,163,2800000,13,Diesel,5,5295x1870x1780,Automatic,Pickup,0
+Isuzu,MU-X,190,3500000,13,Diesel,7,4840x1860x1840,Automatic,SUV,5
+Jaguar,E-Pace,246,6700000,12,Petrol,5,4395x1938x1649,Automatic,SUV,5
+Jaguar,F-Pace,246,7800000,12,Petrol,5,4747x1936x1664,Automatic,SUV,5
+Jeep,Compass,163,3200000,14,Diesel,5,4405x1818x1640,Manual,SUV,5
+Jeep,Grand Cherokee,357,7500000,10,Petrol,5,4828x1943x1756,Automatic,SUV,5
+Jeep,Meridian,170,3500000,14,Diesel,7,4760x1894x1696,Automatic,SUV,5
+Jeep,Wrangler,270,6000000,10,Petrol,4,4267x1877x1837,Automatic,SUV,5
+Kia,Carens,160,2000000,16,Petrol,7,4540x1800x1708,Manual,MPV,3
+Kia,Carens Luxury,160,1900000,16,Petrol,7,4540x1800x1708,Automatic,MPV,3
+Kia,Carnival,185,3500000,8,Diesel,8,5115x1985x1740,Automatic,MPV,5
+Kia,EV6,229,6000000,0,Electric,5,4680x1880x1550,Automatic,SUV,5
+Kia,EV9,283,9000000,0,Electric,7,5010x1980x1755,Automatic,SUV,5
+Kia,Seltos,160,1900000,16,Petrol,5,4315x1800x1645,Automatic,SUV,5
+Kia,Sonet,120,1200000,18,Petrol,5,3995x1790x1642,Manual,SUV,3
+Kia,Sonet CNG,120,1400000,25,Petrol CNG,5,3995x1790x1642,Manual,SUV,3
+Kia,Sonet Diesel,100,1400000,24,Diesel,5,3995x1790x1642,Manual,SUV,3
+Kia,Sonet X Line,120,1500000,18,Petrol,5,3995x1790x1642,Automatic,SUV,3
+Land Rover,Defender,395,10500000,9,Petrol,5,5018x2105x1967,Automatic,SUV,5
+Land Rover,Range Rover Evoque,246,7200000,12,Petrol,5,4371x1904x1649,Automatic,SUV,5
+Lexus,ES,218,6200000,16,Petrol Hybrid,5,4975x1865x1445,Automatic,Sedan,5
+Lexus,NX,275,6700000,14,Petrol Hybrid,5,4660x1865x1660,Automatic,SUV,5
+MG,Astor,140,1600000,15,Petrol,5,4323x1809x1649,Manual,SUV,0
+MG,Comet EV,42,700000,0,Electric,4,2974x1505x1640,Automatic,Hatchback,0
+MG,Gloster,218,3800000,12,Diesel,7,4985x1926x1867,Automatic,SUV,5
+MG,Hector,143,1800000,15,Petrol,5,4655x1835x1760,Manual,SUV,0
+MG,Hector Plus,143,2000000,15,Petrol,7,4720x1835x1760,Manual,SUV,0
+MG,Windsor EV,170,1400000,0,Electric,5,4422x1836x1677,Automatic,SUV,0
+MG,Windsor EV Essence,170,1600000,0,Electric,5,4422x1836x1677,Automatic,SUV,0
+MG,ZS EV,176,2300000,0,Electric,5,4323x1809x1649,Automatic,SUV,0
+Mahindra,BE 6,231,1890000,0,Electric,5,4371x1900x1636,Automatic,SUV,5
+Mahindra,BE 6e,231,2200000,0,Electric,5,4371x1900x1636,Automatic,SUV,5
+Mahindra,Bolero,100,1000000,16,Diesel,9,4190x1745x1910,Manual,SUV,0
+Mahindra,Bolero Neo,100,1100000,16,Diesel,7,4038x1795x1817,Manual,SUV,1
+Mahindra,Bolero Neo Plus,100,1200000,16,Diesel,9,4190x1745x1910,Manual,SUV,0
+Mahindra,Marazzo,123,1400000,17,Diesel,7,4585x1866x1774,Manual,MPV,4
+Mahindra,Scorpio Classic,130,1400000,15,Diesel,7,4456x1820x1995,Manual,SUV,0
+Mahindra,Scorpio N,203,2500000,14,Diesel,7,4662x1917x1857,Automatic,SUV,5
+Mahindra,Scorpio N Z4,203,1700000,14,Diesel,7,4662x1917x1857,Manual,SUV,5
+Mahindra,Thar,150,1700000,15,Petrol,4,3985x1855x1844,Manual,SUV,4
+Mahindra,Thar Roxx,175,1800000,5,Diesel,5,4428x1870x1905,Automatic,SUV,5
+Mahindra,XEV 9e,286,3000000,0,Electric,5,4789x1905x1690,Automatic,SUV,5
+Mahindra,XUV 3XO,130,1200000,18,Petrol,5,3990x1821x1641,Manual,SUV,5
+Mahindra,XUV 3XO EV,130,1500000,0,Electric,5,3990x1821x1641,Automatic,SUV,5
+Mahindra,XUV300,110,1200000,18,Petrol,5,3995x1821x1627,Manual,SUV,5
+Mahindra,XUV400,150,1600000,0,Electric,5,4200x1821x1634,Automatic,SUV,5
+Mahindra,XUV700,200,3000000,15,Petrol,7,4695x1890x1755,Automatic,SUV,5
+Maruti Suzuki,Alto K10,67,500000,24,Petrol,5,3530x1490x1520,Manual,Hatchback,2
+Maruti Suzuki,Alto K10 CNG,67,600000,33,Petrol CNG,5,3530x1490x1520,Manual,Hatchback,2
+Maruti Suzuki,Baleno,90,850000,22,Petrol,5,3990x1745x1500,Manual,Hatchback,3
+Maruti Suzuki,Baleno Alpha,90,1000000,22,Petrol,5,3990x1745x1500,Automatic,Hatchback,3
+Maruti Suzuki,Baleno CNG,90,1000000,30,Petrol CNG,5,3990x1745x1500,Manual,Hatchback,3
+Maruti Suzuki,Brezza,103,1100000,19,Petrol,5,3995x1790x1685,Manual,SUV,4
+Maruti Suzuki,Brezza CNG,103,1250000,25,Petrol CNG,5,3995x1790x1685,Manual,SUV,4
+Maruti Suzuki,Brezza Diesel,90,1300000,24,Diesel,5,3995x1790x1685,Manual,SUV,4
+Maruti Suzuki,Celerio,67,700000,26,Petrol,5,3695x1655x1555,Manual,Hatchback,3
+Maruti Suzuki,Celerio CNG,67,800000,35,Petrol CNG,5,3695x1655x1555,Manual,Hatchback,3
+Maruti Suzuki,Dzire,90,900000,23,Petrol,5,3995x1735x1515,Manual,Sedan,5
+Maruti Suzuki,Dzire CNG,90,1050000,33,Petrol CNG,5,3995x1735x1515,Manual,Sedan,5
+Maruti Suzuki,Ertiga,103,1300000,20,Petrol,7,4395x1735x1690,Manual,MPV,3
+Maruti Suzuki,Ertiga CNG,103,1450000,26,Petrol CNG,7,4395x1735x1690,Manual,MPV,3
+Maruti Suzuki,Ertiga ZXi Plus,103,1600000,20,Petrol,7,4395x1735x1690,Automatic,MPV,3
+Maruti Suzuki,Fronx,100,1000000,21,Petrol,5,3995x1765x1550,Manual,Crossover,4
+Maruti Suzuki,Fronx CNG,100,1200000,28,Petrol CNG,5,3995x1765x1550,Manual,Crossover,4
+Maruti Suzuki,Grand Vitara,103,1400000,21,Petrol Hybrid,5,4345x1795x1645,Automatic,SUV,Not Rated
+Maruti Suzuki,Grand Vitara CNG,103,1600000,26,Petrol CNG,5,4345x1795x1645,Manual,SUV,Not Rated
+Maruti Suzuki,Ignis,83,700000,20,Petrol,5,3700x1690x1595,Manual,Hatchback,3
+Maruti Suzuki,Invicto,186,2400000,23,Petrol Hybrid,7,4755x1850x1795,Automatic,MPV,5
+Maruti Suzuki,Jimny,105,1500000,16,Petrol,4,3645x1645x1720,Manual,SUV,3
+Maruti Suzuki,S-Presso,67,550000,24,Petrol,5,3565x1520x1567,Manual,Hatchback,1
+Maruti Suzuki,S-Presso CNG,67,650000,32,Petrol CNG,5,3565x1520x1567,Manual,Hatchback,1
+Maruti Suzuki,Swift,83,800000,22,Petrol,5,3845x1735x1530,Manual,Hatchback,2
+Maruti Suzuki,Swift AMT,83,950000,22,Petrol,5,3845x1735x1530,Automatic,Hatchback,2
+Maruti Suzuki,Swift CNG,83,950000,32,Petrol CNG,5,3845x1735x1530,Manual,Hatchback,2
+Maruti Suzuki,Wagon R,83,750000,23,Petrol,5,3655x1620x1675,Manual,Hatchback,1
+Maruti Suzuki,Wagon R CNG,83,850000,34,Petrol CNG,5,3655x1620x1675,Manual,Hatchback,1
+Maruti Suzuki,XL6,103,1500000,20,Petrol,6,4445x1775x1700,Automatic,MPV,3
+Maruti Suzuki,XL6 Alpha,103,1700000,20,Petrol,6,4445x1775x1700,Automatic,MPV,3
+Maruti Suzuki,e Vitara,144,1599000,0,Electric,5,4275x1800x1635,Automatic,SUV,Not Rated
+Mercedes-Benz,C-Class,204,6500000,14,Petrol,5,4751x1820x1438,Automatic,Sedan,5
+Mercedes-Benz,GLA,163,5000000,15,Petrol,5,4410x1834x1611,Automatic,SUV,5
+Nissan,Gravite,100,565000,19,Petrol,5,3850x1700x1550,Manual,Hatchback,3
+Nissan,Magnite,100,900000,20,Petrol,5,3994x1758x1572,Manual,SUV,4
+Nissan,Magnite AMT,100,1000000,20,Petrol,5,3994x1758x1572,Automatic,SUV,4
+Nissan,Magnite Turbo,100,1100000,18,Petrol,5,3994x1758x1572,Automatic,SUV,4
+Porsche,Cayenne,340,10500000,11,Petrol,5,4918x1983x1696,Automatic,SUV,5
+Porsche,Macan,265,8500000,12,Petrol,5,4681x1928x1624,Automatic,SUV,5
+Renault,Duster 2025,156,1200000,17,Petrol,5,4315x1822x1695,Manual,SUV,4
+Renault,Kiger,100,900000,20,Petrol,5,3991x1750x1605,Manual,SUV,4
+Renault,Kiger Turbo,100,1100000,19,Petrol,5,3991x1750x1605,Automatic,SUV,4
+Renault,Kwid,68,500000,22,Petrol,5,3731x1579x1490,Manual,Hatchback,1
+Renault,Kwid Climber,68,600000,22,Petrol,5,3731x1579x1490,Manual,Hatchback,1
+Renault,Triber,72,700000,19,Petrol,7,3990x1739x1643,Manual,MPV,4
+Renault,Triber Easy-R,72,800000,19,Petrol,7,3990x1739x1643,Automatic,MPV,4
+Renault,Triber RXZ,72,900000,19,Petrol,7,3990x1739x1643,Automatic,MPV,4
+Skoda,Enyaq,204,5600000,0,Electric,5,4649x1877x1616,Automatic,SUV,5
+Skoda,Kodiaq,190,3700000,14,Petrol,7,4697x1882x1676,Automatic,SUV,5
+Skoda,Kushaq,150,1800000,17,Petrol,5,4225x1760x1612,Automatic,SUV,5
+Skoda,Kushaq Monte Carlo,150,2100000,17,Petrol,5,4225x1760x1612,Automatic,SUV,5
+Skoda,Octavia,190,2500000,16,Petrol,5,4689x1829x1461,Automatic,Sedan,5
+Skoda,Slavia,150,1600000,18,Petrol,5,4541x1752x1507,Automatic,Sedan,5
+Skoda,Slavia Monte Carlo,150,1900000,18,Petrol,5,4541x1752x1507,Automatic,Sedan,5
+Skoda,Superb,190,3500000,15,Petrol,5,4869x1864x1468,Automatic,Sedan,5
+Tata,Altroz,110,1000000,19,Petrol,5,3990x1755x1523,Manual,Hatchback,5
+Tata,Altroz CNG,110,1150000,25,Petrol CNG,5,3990x1755x1523,Manual,Hatchback,5
+Tata,Altroz Racer,110,1200000,19,Petrol,5,3990x1755x1523,Manual,Hatchback,5
+Tata,Curvv,125,1800000,17,Petrol,5,4300x1810x1630,Automatic,Coupe SUV,5
+Tata,Curvv EV,165,2200000,0,Electric,5,4300x1810x1630,Automatic,Coupe SUV,5
+Tata,Harrier,170,2500000,14,Diesel,5,4598x1894x1706,Automatic,SUV,5
+Tata,Nexon,120,1100000,17,Petrol,5,3993x1811x1606,Manual,SUV,5
+Tata,Nexon CNG,120,1300000,24,Petrol CNG,5,3993x1811x1606,Manual,SUV,5
+Tata,Nexon Diesel,110,1300000,24,Diesel,5,3993x1811x1606,Manual,SUV,5
+Tata,Nexon EV,129,1600000,0,Electric,5,3993x1811x1606,Automatic,SUV,5
+Tata,Nexon Facelift,120,1200000,17,Petrol,5,3993x1811x1606,Manual,SUV,5
+Tata,Punch,86,700000,20,Petrol,5,3827x1742x1615,Manual,SUV,5
+Tata,Punch CNG,86,900000,26,Petrol CNG,5,3827x1742x1615,Manual,SUV,5
+Tata,Punch CNG Adventure,86,1000000,26,Petrol CNG,5,3827x1742x1615,Manual,SUV,5
+Tata,Punch EV,122,1400000,0,Electric,5,3827x1742x1615,Automatic,SUV,5
+Tata,Safari,170,2800000,7,Diesel,7,4668x1894x1706,Automatic,SUV,5
+Tata,Sierra,167,1149000,17,Petrol,5,4345x1850x1700,Automatic,SUV,0
+Tata,Tiago,86,700000,19,Petrol,5,3765x1677x1535,Manual,Hatchback,4
+Tata,Tiago CNG,86,850000,26,Petrol CNG,5,3765x1677x1535,Manual,Hatchback,4
+Tata,Tiago EV,74,1100000,0,Electric,5,3769x1677x1535,Automatic,Hatchback,4
+Tata,Tiago EV Long Range,74,1300000,0,Electric,5,3769x1677x1535,Automatic,Hatchback,4
+Tata,Tigor,86,800000,20,Petrol,5,3993x1677x1532,Manual,Sedan,4
+Tata,Tigor EV,74,1300000,0,Electric,5,3993x1677x1532,Automatic,Sedan,4
+Toyota,Camry,190,4800000,19,Petrol Hybrid,5,4885x1840x1445,Automatic,Sedan,5
+Toyota,Fortuner,204,4500000,14,Diesel,7,4795x1855x1835,Automatic,SUV,5
+Toyota,Glanza,90,850000,22,Petrol,5,3990x1745x1500,Manual,Hatchback,4
+Toyota,Glanza V,90,1000000,22,Petrol,5,3990x1745x1500,Automatic,Hatchback,4
+Toyota,Hilux,204,4000000,13,Diesel,5,5325x1855x1815,Manual,Pickup,0
+Toyota,Hyryder CNG,103,1600000,26,Petrol CNG,5,4365x1795x1645,Manual,SUV,Not Rated
+Toyota,Innova Crysta,148,2100000,16,Diesel,7,4735x1830x1795,Manual,MPV,5
+Toyota,Innova Hycross,186,3000000,21,Petrol Hybrid,7,4755x1845x1795,Automatic,MPV,5
+Toyota,Land Cruiser,409,2100000,10,Petrol,7,4985x1980x1925,Automatic,SUV,5
+Toyota,Rumion,103,1600000,20,Petrol,6,4520x1775x1700,Automatic,MPV,3
+Toyota,Rumion V,103,1900000,20,Petrol,6,4520x1775x1700,Automatic,MPV,3
+Toyota,Urban Cruiser Hyryder,103,1400000,21,Petrol Hybrid,5,4365x1795x1645,Automatic,SUV,Not Rated
+Toyota,Vellfire,274,13000000,17,Petrol Hybrid,7,4945x1850x1895,Automatic,MPV,5
+Volkswagen,Polo,95,1000000,17,Petrol,5,4053x1740x1462,Manual,Hatchback,4
+Volkswagen,Taigun,150,1800000,17,Petrol,5,4221x1760x1612,Automatic,SUV,5
+Volkswagen,Taigun GT,150,2100000,17,Petrol,5,4221x1760x1612,Automatic,SUV,5
+Volkswagen,Tayron,220,4699000,14,Petrol,7,4761x1858x1661,Automatic,SUV,5
+Volkswagen,Tiguan,190,3500000,14,Petrol,5,4509x1839x1673,Automatic,SUV,5
+Volkswagen,Vento,110,1400000,17,Petrol,5,4415x1699x1469,Automatic,Sedan,4
+Volkswagen,Virtus,150,1600000,18,Petrol,5,4561x1752x1507,Automatic,Sedan,5
+Volkswagen,Virtus GT,150,1900000,17,Petrol,5,4561x1752x1507,Automatic,Sedan,5
+Volvo,XC40,197,4500000,14,Petrol,5,4425x1863x1652,Automatic,SUV,5
+Volvo,XC40 Recharge,408,6200000,0,Electric,5,4425x1863x1652,Automatic,SUV,5
